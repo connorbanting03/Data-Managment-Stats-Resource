@@ -1,0 +1,32 @@
+h1{
+text-align: center;
+
+}
+#right-block{
+    width: 20%;
+    height: 5000px;
+    background-color:rgb(0, 139, 0);
+   float:right;
+
+
+}
+#left-block{
+    width: 20%;
+    height: 5000px;
+    background-color:rgb(0, 139, 0);
+   float:left;
+
+
+}
+
+#primeCheck{
+    text-align:center;
+}
+#factorialWorkSpace{
+    text-align:center;
+}
+
+#Message{
+text-align:center;
+
+}
