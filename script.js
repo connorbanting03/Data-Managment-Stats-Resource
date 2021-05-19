@@ -10,6 +10,10 @@ function takeMeHome() {
     document.location.href = "index.html";
 
 }
+function centralClicked() {
+    document.location.href = "CentralTendency.html";
+}
+
 function primeCheck1() {
 
     let maybePrime = document.getElementById("primeNumber").value;
