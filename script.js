@@ -13,6 +13,32 @@ function takeMeHome() {
 function centralClicked() {
     document.location.href = "CentralTendency.html";
 }
+function findDataset() {
+    let bigData = document.getElementById("dataSet").value;
+    let singleArray = bigData.split("");
+    let fixedData = "";
+    let numberCollector = "";
+    let currentIndex = "";
+    for (var x = 0; x < singleArray.length; x++) {
+        if (singleArray[x] == " ") {
+            currentIndex = ",";
+        } else {
+            currentIndex = Number(singleArray[x]);
+        }
+
+        if (!isNaN(currentIndex)) {
+            numberCollector += singleArray[x];
+        } else {
+            numberCollector = numberCollector.trim();
+            fixedData += (numberCollector + " ");
+            numberCollector = "";
+        }
+
+    }
+    fixedData += numberCollector;
+    console.log(fixedData);
+}
+
 
 function primeCheck1() {
 

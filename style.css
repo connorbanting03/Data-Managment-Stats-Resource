@@ -31,9 +31,10 @@ text-align:center;
 
 }
 #prime-number{
-    width:300px;
+    width:19.5%;
     height:100px;
     border: none;
+    padding: 5px;
     color:white;
     background-color:rgb(255,0,60);
     border-radius: 4px;
@@ -43,12 +44,13 @@ text-align:center;
     outline: none;
 }
 #prime-number:hover{
-    box-shadow: inset 300px 0 0 0 #f98806;
+    box-shadow: inset 325px 0 0 0 #f98806;
 }
 #factorial-number{
-    width:300px;
+    width:19.5%;
     height:100px;
     border: none;
+    padding: 5px;
     color:white;
     background-color:rgb(0, 153, 255);
     border-radius: 4px;
@@ -61,11 +63,32 @@ text-align:center;
 
 }
 #factorial-number:hover{
-    box-shadow: inset 300px 0 0 0 #a006f9;
+    box-shadow: inset 325px 0 0 0 #a006f9;
+}
+#central-number{
+    width:19.5%;
+    height:100px;
+    border: none;
+    padding: 5px;
+    color:white;
+    background-color:rgb(0, 255, 98);
+    border-radius: 4px;
+    box-shadow: inset 0 0 0 0 #88f906;
+    transition: ease-out 0.3s;
+    font-size:2rem;
+    outline: none;
+
+
+
+}
+#central-number:hover{
+    box-shadow: inset 325px 0 0 0 #88f906;
 }
 
-
-
+#dataSet{
+    width:20%;
+    height:150px;
+}
 
 
 #logoBlock{
@@ -74,4 +97,11 @@ text-align:left;
 #logo{
     width:5%;
     height:5%;
+}
+#buttons{
+    text-align:center;
+}
+
+#Instructions{
+    text-align:center;
 }
