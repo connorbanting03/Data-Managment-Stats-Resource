@@ -2,6 +2,9 @@ h1{
 text-align: center;
 
 }
+h3{
+    text-indent: 25px;
+}
 #right-block{
     width: 20%;
     height: 5000px;

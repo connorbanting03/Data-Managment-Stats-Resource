@@ -30,13 +30,139 @@ function findDataset() {
             numberCollector += singleArray[x];
         } else {
             numberCollector = numberCollector.trim();
-            fixedData += (numberCollector + " ");
-            numberCollector = "";
+            if (!numberCollector == "") {
+                fixedData += (numberCollector + " ");
+                numberCollector = "";
+            }
+
+
         }
 
     }
     fixedData += numberCollector;
-    console.log(fixedData);
+    let Average = MeanModeRange(fixedData.split(" "))
+    Median(fixedData.split(" "));
+    StandardDevasion(Average, fixedData.split(" "), false);
+
+}
+
+function MeanModeRange(SplitData) {
+
+    let Min = Number.MAX_SAFE_INTEGER;
+    let Max = Number.MIN_SAFE_INTEGER;
+    let Mean = document.getElementById("Mean");
+    let Mode = document.getElementById("Mode");
+    let Range = document.getElementById("Range");
+    let Average = 0;
+    let modeIndex = 0;
+    let allTimeCount = 0;
+    for (var x = 0; x < SplitData.length; x++) {
+        let matchCount = 0;
+        let CurrentThing = Number(SplitData[x]);
+
+        if (Min > CurrentThing) {
+            Min = CurrentThing;
+
+        }
+
+        if (Max < CurrentThing) {
+            Max = CurrentThing;
+        }
+
+        for (var y = 0; y < SplitData.length; y++) {
+            if (SplitData[x] == SplitData[y]) {
+                matchCount++;
+            }
+
+        }
+
+        if (matchCount > allTimeCount && matchCount > 1) {
+            modeIndex = x;
+            allTimeCount = matchCount;
+        }
+
+        Average += Number(SplitData[x]);
+
+    }
+
+
+    let RangeSentence = "Range: " + (Max - Min);
+    Range.innerHTML = RangeSentence;
+    let AverageSentence = "Mean: " + (Average / SplitData.length);
+    Mean.innerHTML = AverageSentence;
+
+    if (allTimeCount > 1) {
+        Mode.innerHTML = "Mode: " + (SplitData[modeIndex]);
+    }
+    else {
+        Mode.innerHTML = "Mode: NA";
+    }
+
+    return Average / SplitData.length;
+
+}
+
+function Median(WordMate) {
+    let inputArr = []
+    for (var x = 0; x < WordMate.length; x++) {
+        if (!isNaN(Number(WordMate[x]))) {
+            inputArr[x] = Number(WordMate[x]);
+        }
+
+    }
+    let n = inputArr.length;
+
+    for (let i = 0; i < n; i++) {
+        let min = i;
+        for (let j = i + 1; j < n; j++) {
+            if (inputArr[j] < inputArr[min]) {
+                min = j;
+            }
+        }
+        if (min != i) {
+
+            let tmp = inputArr[i];
+            inputArr[i] = inputArr[min];
+            inputArr[min] = tmp;
+        }
+    }
+    let MedianHelper = document.getElementById("Median");
+    if (!(inputArr.length % 2 == 0)) {
+        MedianHelper.innerHTML = "Median: " + (inputArr[((inputArr.length - 1) / 2)]);
+
+
+    } else {
+
+        let word = ((inputArr[inputArr.length / 2] + inputArr[((inputArr.length / 2) - 1)]) / 2)
+        MedianHelper.innerHTML = "Median: " + word;
+
+    }
+
+
+}
+function StandardDevasion(Average, DataSet, Sample) {
+    let RunningTotal = 0;
+    for (var x = 0; x < DataSet.length; x++) {
+        RunningTotal += Math.pow(((DataSet[x]) - Average), 2);
+        console.log(RunningTotal);
+
+    }
+    console.log(RunningTotal);
+    let Standard = 0;
+    if (!Sample) {
+        Standard += (RunningTotal / DataSet.length);
+    } else {
+        Standard += (RunningTotal / (DataSet.length - 1));
+    }
+
+    Standard = Math.sqrt(Standard);
+
+    let StandardDevasion = document.getElementById("Standard");
+    let Variance = document.getElementById("Variance");
+    StandardDevasion.innerHTML = "Standard Devasion: " + Standard;
+    Standard = Math.pow(Standard, 2);
+    Variance.innerHTML = "Variance: " + Standard;
+
 }
 
 
